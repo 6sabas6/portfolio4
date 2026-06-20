@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finish Selection · Saba Aghapour</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#F7F4EF;--warm:#FDFBF8;--dark:#2C2B28;--mid:#6B6860;--light:#A8A59F;--sage:#7A8C7E;--gold:#A08C5B;--rule:#E0DDD8}
+body{font-family:'Inter',sans-serif;background:var(--warm);color:var(--dark);-webkit-font-smoothing:antialiased}
+.hero{padding:60px 2.5rem;max-width:860px;margin:0 auto;border-bottom:1px solid var(--rule)}
+.eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:1.5rem;display:flex;align-items:center;gap:12px}
+.eyebrow::after{content:'';width:40px;height:1px;background:var(--sage);display:inline-block}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:300;line-height:1.15;margin-bottom:1.5rem}
+h1 em{font-style:italic;color:var(--sage)}
+.hero-desc{font-size:1rem;color:var(--mid);max-width:600px;line-height:1.8;margin-bottom:2.5rem}
+.meta{display:flex;gap:2rem;flex-wrap:wrap}
+.meta-item{display:flex;flex-direction:column;gap:4px}
+.meta-label{font-size:.65rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--light)}
+.meta-value{font-size:.9rem;color:var(--dark)}
+.process{background:var(--cream);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:3rem 2.5rem}
+.process-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:3rem}
+.process h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;line-height:1.3}
+.plist{display:grid;grid-template-columns:1fr 1fr;gap:1rem 2rem}
+.pi{display:flex;flex-direction:column;gap:3px}
+.pi-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);font-weight:500}
+.pi-val{font-size:.88rem;line-height:1.5}
+.project{max-width:1100px;margin:0 auto;padding:5rem 2.5rem;border-bottom:1px solid var(--rule)}
+.ph{display:grid;grid-template-columns:auto 1fr;gap:2rem;margin-bottom:3rem}
+.pnum{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,8vw,7rem);font-weight:300;line-height:1;color:var(--rule);letter-spacing:-.02em}
+.pinfo{padding-top:.5rem}
+.ptitle{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3vw,2.1rem);font-weight:400;line-height:1.2;margin-bottom:.75rem}
+.ptitle em{font-style:italic;color:var(--gold)}
+.pdesc{font-size:.9rem;color:var(--mid);line-height:1.75;margin-bottom:1.25rem;max-width:500px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);border:1px solid var(--rule);padding:4px 10px;background:var(--cream)}
+.ic{position:relative;overflow:hidden;background:var(--cream)}
+.ic img{width:100%;height:280px;object-fit:cover;display:block;transition:transform .6s}
+.ic:hover img{transform:scale(1.04)}
+.ic.l{width:100%}
+.ic.t{width:100%}
+.ic.s{width:100%}
+.cap{position:absolute;bottom:0;left:0;right:0;padding:2rem 1rem 1rem;background:linear-gradient(to top,rgba(44,43,40,.72),transparent);opacity:0;transition:opacity .3s}
+.ic:hover .cap{opacity:1}
+.cap p{font-size:.75rem;color:rgba(255,255,255,.9);line-height:1.5}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px}
+.g21{display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-bottom:10px}
+.mb0{margin-bottom:0!important}
+.mood{max-width:1100px;margin:0 auto;padding:4rem 2.5rem;border-bottom:1px solid var(--rule)}
+.mood-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.mood h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;margin-bottom:.75rem}
+.mood h3 em{font-style:italic;color:var(--sage)}
+.mood p{font-size:.9rem;color:var(--mid);line-height:1.75}
+footer{padding:3rem;text-align:center;border-top:1px solid var(--rule);margin-top:2rem}
+footer p{font-size:.78rem;color:var(--light)}
+footer a{color:var(--mid);text-decoration:none}
+@media(max-width:768px){
+  .hero,.project,.mood{padding:3rem 1.25rem}
+  .process{padding:2rem 1.25rem}
+  .process-inner,.ph,.plist,.mood-inner{grid-template-columns:1fr}
+  .g2,.g3,.g4,.g21{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<!-- TRIM BANNER -->
+<style>
+@keyframes hpulse1{0%,100%{opacity:.3}50%{opacity:.9}}
+@keyframes hpulse2{0%,100%{opacity:.5}50%{opacity:.2}}
+@keyframes hpulse3{0%,100%{opacity:.4}50%{opacity:.8}}
+@keyframes hpulse4{0%,100%{opacity:.6}50%{opacity:.15}}
+@keyframes hpulse5{0%,100%{opacity:.2}50%{opacity:.7}}
+@keyframes hpulse6{0%,100%{opacity:.7}50%{opacity:.3}}
+</style>
+<div style="width:100%;height:140px;background:#F7F4EF;overflow:hidden;position:relative;">
+  <svg width="100%" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1400 140">
+    <defs>
+      <style>
+        .h1{animation:hpulse1 3s ease-in-out infinite}
+        .h2{animation:hpulse2 4s ease-in-out infinite}
+        .h3{animation:hpulse3 2.5s ease-in-out infinite}
+        .h4{animation:hpulse4 3.5s ease-in-out infinite}
+        .h5{animation:hpulse5 4.5s ease-in-out infinite}
+        .h6{animation:hpulse6 2.8s ease-in-out infinite}
+      </style>
+    </defs>
+    <!-- Row 1 -->
+    <polygon class="h1" points="26,4 50,18 50,46 26,60 2,46 2,18" fill="none" stroke="#A8C4D4" stroke-width="1.2"/>
+    <polygon class="h3" points="74,4 98,18 98,46 74,60 50,46 50,18" fill="none" stroke="#D4A574" stroke-width="1"/>
+    <polygon class="h5" points="122,4 146,18 146,46 122,60 98,46 98,18" fill="none" stroke="#8B9E7A" stroke-width="1.5"/>
+    <polygon class="h2" points="170,4 194,18 194,46 170,60 146,46 146,18" fill="none" stroke="#C4856A" stroke-width="0.8"/>
+    <polygon class="h4" points="218,4 242,18 242,46 218,60 194,46 194,18" fill="none" stroke="#7BA7BC" stroke-width="1.2"/>
+    <polygon class="h6" points="266,4 290,18 290,46 266,60 242,46 242,18" fill="none" stroke="#B8977E" stroke-width="1"/>
+    <polygon class="h1" points="314,4 338,18 338,46 314,60 290,46 290,18" fill="none" stroke="#9BB08A" stroke-width="1.3"/>
+    <polygon class="h3" points="362,4 386,18 386,46 362,60 338,46 338,18" fill="none" stroke="#A8C4D4" stroke-width="0.9"/>
+    <polygon class="h5" points="410,4 434,18 434,46 410,60 386,46 386,18" fill="none" stroke="#C9A882" stroke-width="1.4"/>
+    <polygon class="h2" points="458,4 482,18 482,46 458,60 434,46 434,18" fill="none" stroke="#7A8C7E" stroke-width="1"/>
+    <polygon class="h4" points="506,4 530,18 530,46 506,60 482,46 482,18" fill="none" stroke="#D4A574" stroke-width="1.2"/>
+    <polygon class="h6" points="554,4 578,18 578,46 554,60 530,46 530,18" fill="none" stroke="#8B9E7A" stroke-width="0.8"/>
+    <polygon class="h1" points="602,4 626,18 626,46 602,60 578,46 578,18" fill="none" stroke="#A8C4D4" stroke-width="1.1"/>
+    <polygon class="h3" points="650,4 674,18 674,46 650,60 626,46 626,18" fill="none" stroke="#C4856A" stroke-width="1.3"/>
+    <polygon class="h5" points="698,4 722,18 722,46 698,60 674,46 674,18" fill="none" stroke="#7BA7BC" stroke-width="1"/>
+    <polygon class="h2" points="746,4 770,18 770,46 746,60 722,46 722,18" fill="none" stroke="#B8977E" stroke-width="1.4"/>
+    <polygon class="h4" points="794,4 818,18 818,46 794,60 770,46 770,18" fill="none" stroke="#9BB08A" stroke-width="0.9"/>
+    <polygon class="h6" points="842,4 866,18 866,46 842,60 818,46 818,18" fill="none" stroke="#D4A574" stroke-width="1.2"/>
+    <polygon class="h1" points="890,4 914,18 914,46 890,60 866,46 866,18" fill="none" stroke="#C9A882" stroke-width="1"/>
+    <polygon class="h3" points="938,4 962,18 962,46 938,60 914,46 914,18" fill="none" stroke="#A8C4D4" stroke-width="1.3"/>
+    <polygon class="h5" points="986,4 1010,18 1010,46 986,60 962,46 962,18" fill="none" stroke="#7A8C7E" stroke-width="0.8"/>
+    <polygon class="h2" points="1034,4 1058,18 1058,46 1034,60 1010,46 1010,18" fill="none" stroke="#C4856A" stroke-width="1.1"/>
+    <polygon class="h4" points="1082,4 1106,18 1106,46 1082,60 1058,46 1058,18" fill="none" stroke="#8B9E7A" stroke-width="1.4"/>
+    <polygon class="h6" points="1130,4 1154,18 1154,46 1130,60 1106,46 1106,18" fill="none" stroke="#7BA7BC" stroke-width="1"/>
+    <polygon class="h1" points="1178,4 1202,18 1202,46 1178,60 1154,46 1154,18" fill="none" stroke="#B8977E" stroke-width="1.2"/>
+    <polygon class="h3" points="1226,4 1250,18 1250,46 1226,60 1202,46 1202,18" fill="none" stroke="#D4A574" stroke-width="0.9"/>
+    <polygon class="h5" points="1274,4 1298,18 1298,46 1274,60 1250,46 1250,18" fill="none" stroke="#9BB08A" stroke-width="1.3"/>
+    <polygon class="h2" points="1322,4 1346,18 1346,46 1322,60 1298,46 1298,18" fill="none" stroke="#A8C4D4" stroke-width="1"/>
+    <polygon class="h4" points="1370,4 1394,18 1394,46 1370,60 1346,46 1346,18" fill="none" stroke="#C9A882" stroke-width="1.2"/>
+    <!-- Row 2 offset -->
+    <polygon class="h4" points="2,46 26,60 26,88 2,102 -22,88 -22,60" fill="none" stroke="#C4856A" stroke-width="1.1"/>
+    <polygon class="h6" points="50,46 74,60 74,88 50,102 26,88 26,60" fill="none" stroke="#9BB08A" stroke-width="1.3"/>
+    <polygon class="h2" points="98,46 122,60 122,88 98,102 74,88 74,60" fill="none" stroke="#A8C4D4" stroke-width="0.9"/>
+    <polygon class="h1" points="146,46 170,60 170,88 146,102 122,88 122,60" fill="none" stroke="#D4A574" stroke-width="1.2"/>
+    <polygon class="h3" points="194,46 218,60 218,88 194,102 170,88 170,60" fill="none" stroke="#7BA7BC" stroke-width="1"/>
+    <polygon class="h5" points="242,46 266,60 266,88 242,102 218,88 218,60" fill="none" stroke="#B8977E" stroke-width="1.4"/>
+    <polygon class="h4" points="290,46 314,60 314,88 290,102 266,88 266,60" fill="none" stroke="#8B9E7A" stroke-width="0.8"/>
+    <polygon class="h6" points="338,46 362,60 362,88 338,102 314,88 314,60" fill="none" stroke="#C9A882" stroke-width="1.1"/>
+    <polygon class="h2" points="386,46 410,60 410,88 386,102 362,88 362,60" fill="none" stroke="#7A8C7E" stroke-width="1.3"/>
+    <polygon class="h1" points="434,46 458,60 458,88 434,102 410,88 410,60" fill="none" stroke="#A8C4D4" stroke-width="1"/>
+    <polygon class="h3" points="482,46 506,60 506,88 482,102 458,88 458,60" fill="none" stroke="#C4856A" stroke-width="1.2"/>
+    <polygon class="h5" points="530,46 554,60 554,88 530,102 506,88 506,60" fill="none" stroke="#D4A574" stroke-width="0.9"/>
+    <polygon class="h4" points="578,46 602,60 602,88 578,102 554,88 554,60" fill="none" stroke="#9BB08A" stroke-width="1.3"/>
+    <polygon class="h6" points="626,46 650,60 650,88 626,102 602,88 602,60" fill="none" stroke="#7BA7BC" stroke-width="1.1"/>
+    <polygon class="h2" points="674,46 698,60 698,88 674,102 650,88 650,60" fill="none" stroke="#B8977E" stroke-width="1.4"/>
+    <polygon class="h1" points="722,46 746,60 746,88 722,102 698,88 698,60" fill="none" stroke="#8B9E7A" stroke-width="1"/>
+    <polygon class="h3" points="770,46 794,60 794,88 770,102 746,88 746,60" fill="none" stroke="#C9A882" stroke-width="0.8"/>
+    <polygon class="h5" points="818,46 842,60 842,88 818,102 794,88 794,60" fill="none" stroke="#A8C4D4" stroke-width="1.2"/>
+    <polygon class="h4" points="866,46 890,60 890,88 866,102 842,88 842,60" fill="none" stroke="#D4A574" stroke-width="1"/>
+    <polygon class="h6" points="914,46 938,60 938,88 914,102 890,88 890,60" fill="none" stroke="#7A8C7E" stroke-width="1.3"/>
+    <polygon class="h2" points="962,46 986,60 986,88 962,102 938,88 938,60" fill="none" stroke="#C4856A" stroke-width="1.1"/>
+    <polygon class="h1" points="1010,46 1034,60 1034,88 1010,102 986,88 986,60" fill="none" stroke="#9BB08A" stroke-width="0.9"/>
+    <polygon class="h3" points="1058,46 1082,60 1082,88 1058,102 1034,88 1034,60" fill="none" stroke="#7BA7BC" stroke-width="1.4"/>
+    <polygon class="h5" points="1106,46 1130,60 1130,88 1106,102 1082,88 1082,60" fill="none" stroke="#B8977E" stroke-width="1"/>
+    <polygon class="h4" points="1154,46 1178,60 1178,88 1154,102 1130,88 1130,60" fill="none" stroke="#8B9E7A" stroke-width="1.2"/>
+    <polygon class="h6" points="1202,46 1226,60 1226,88 1202,102 1178,88 1178,60" fill="none" stroke="#A8C4D4" stroke-width="0.8"/>
+    <polygon class="h2" points="1250,46 1274,60 1274,88 1250,102 1226,88 1226,60" fill="none" stroke="#C9A882" stroke-width="1.3"/>
+    <polygon class="h1" points="1298,46 1322,60 1322,88 1298,102 1274,88 1274,60" fill="none" stroke="#D4A574" stroke-width="1.1"/>
+    <polygon class="h3" points="1346,46 1370,60 1370,88 1346,102 1322,88 1322,60" fill="none" stroke="#C4856A" stroke-width="1"/>
+    <!-- Row 3 -->
+    <polygon class="h3" points="26,88 50,102 50,130 26,144 2,130 2,102" fill="none" stroke="#7BA7BC" stroke-width="1.2"/>
+    <polygon class="h5" points="74,88 98,102 98,130 74,144 50,130 50,102" fill="none" stroke="#D4A574" stroke-width="1"/>
+    <polygon class="h1" points="122,88 146,102 146,130 122,144 98,130 98,102" fill="none" stroke="#9BB08A" stroke-width="1.4"/>
+    <polygon class="h4" points="170,88 194,102 194,130 170,144 146,130 146,102" fill="none" stroke="#A8C4D4" stroke-width="0.9"/>
+    <polygon class="h6" points="218,88 242,102 242,130 218,144 194,130 194,102" fill="none" stroke="#C4856A" stroke-width="1.2"/>
+    <polygon class="h2" points="266,88 290,102 290,130 266,144 242,130 242,102" fill="none" stroke="#8B9E7A" stroke-width="1"/>
+    <polygon class="h3" points="314,88 338,102 338,130 314,144 290,130 290,102" fill="none" stroke="#B8977E" stroke-width="1.3"/>
+    <polygon class="h5" points="362,88 386,102 386,130 362,144 338,130 338,102" fill="none" stroke="#7A8C7E" stroke-width="0.8"/>
+    <polygon class="h1" points="410,88 434,102 434,130 410,144 386,130 386,102" fill="none" stroke="#C9A882" stroke-width="1.1"/>
+    <polygon class="h4" points="458,88 482,102 482,130 458,144 434,130 434,102" fill="none" stroke="#A8C4D4" stroke-width="1.4"/>
+    <polygon class="h6" points="506,88 530,102 530,130 506,144 482,130 482,102" fill="none" stroke="#D4A574" stroke-width="1"/>
+    <polygon class="h2" points="554,88 578,102 578,130 554,144 530,130 530,102" fill="none" stroke="#7BA7BC" stroke-width="1.2"/>
+    <polygon class="h3" points="602,88 626,102 626,130 602,144 578,130 578,102" fill="none" stroke="#9BB08A" stroke-width="0.9"/>
+    <polygon class="h5" points="650,88 674,102 674,130 650,144 626,130 626,102" fill="none" stroke="#C4856A" stroke-width="1.3"/>
+    <polygon class="h1" points="698,88 722,102 722,130 698,144 674,130 674,102" fill="none" stroke="#8B9E7A" stroke-width="1.1"/>
+    <polygon class="h4" points="746,88 770,102 770,130 746,144 722,130 722,102" fill="none" stroke="#B8977E" stroke-width="1.4"/>
+    <polygon class="h6" points="794,88 818,102 818,130 794,144 770,130 770,102" fill="none" stroke="#A8C4D4" stroke-width="0.8"/>
+    <polygon class="h2" points="842,88 866,102 866,130 842,144 818,130 818,102" fill="none" stroke="#C9A882" stroke-width="1.2"/>
+    <polygon class="h3" points="890,88 914,102 914,130 890,144 866,130 866,102" fill="none" stroke="#7A8C7E" stroke-width="1"/>
+    <polygon class="h5" points="938,88 962,102 962,130 938,144 914,130 914,102" fill="none" stroke="#D4A574" stroke-width="1.3"/>
+    <polygon class="h1" points="986,88 1010,102 1010,130 986,144 962,130 962,102" fill="none" stroke="#7BA7BC" stroke-width="0.9"/>
+    <polygon class="h4" points="1034,88 1058,102 1058,130 1034,144 1010,130 1010,102" fill="none" stroke="#C4856A" stroke-width="1.1"/>
+    <polygon class="h6" points="1082,88 1106,102 1106,130 1082,144 1058,130 1058,102" fill="none" stroke="#9BB08A" stroke-width="1.4"/>
+    <polygon class="h2" points="1130,88 1154,102 1154,130 1130,144 1106,130 1106,102" fill="none" stroke="#A8C4D4" stroke-width="1"/>
+    <polygon class="h3" points="1178,88 1202,102 1202,130 1178,144 1154,130 1154,102" fill="none" stroke="#8B9E7A" stroke-width="1.2"/>
+    <polygon class="h5" points="1226,88 1250,102 1250,130 1226,144 1202,130 1202,102" fill="none" stroke="#B8977E" stroke-width="0.8"/>
+    <polygon class="h1" points="1274,88 1298,102 1298,130 1274,144 1250,130 1250,102" fill="none" stroke="#C9A882" stroke-width="1.3"/>
+    <polygon class="h4" points="1322,88 1346,102 1346,130 1322,144 1298,130 1298,102" fill="none" stroke="#D4A574" stroke-width="1.1"/>
+    <polygon class="h6" points="1370,88 1394,102 1394,130 1370,144 1346,130 1346,102" fill="none" stroke="#7BA7BC" stroke-width="1"/>
+  </svg>
+</div>
+
+
+<section class="hero">
+  <p class="eyebrow">Interior Projects</p>
+  <h1>Finish Selection<br><em>Residential Projects</em></h1>
+  <p class="hero-desc">A selection of residential projects spanning contractor clients, homeowners, and realtors across the DMV. For each project I considered budget, timeline, location, whether it was for resale, material and maintenance preferences, and client style.</p>
+  <div class="meta">
+    <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Interior Design Consultant</span></div>
+    <div class="meta-item"><span class="meta-label">Clients</span><span class="meta-value">Contractors · Homeowners · Realtors</span></div>
+    <div class="meta-item"><span class="meta-label">Location</span><span class="meta-value">DMV Area</span></div>
+    <div class="meta-item"><span class="meta-label">Projects</span><span class="meta-value">10+ Completed</span></div>
+  </div>
+</section>
+
+<div class="process">
+  <div class="process-inner">
+    <h2>My process<br>for every project</h2>
+    <div class="plist">
+      <div class="pi"><span class="pi-label">Budget &amp; Timeline</span><span class="pi-val">Every selection balanced aesthetic goals against realistic budget and project schedule</span></div>
+      <div class="pi"><span class="pi-label">Resale vs. Personal Use</span><span class="pi-val">Finish recommendations shifted based on whether the home was for resale or long-term living</span></div>
+      <div class="pi"><span class="pi-label">Material &amp; Maintenance</span><span class="pi-val">Durability, upkeep, and lifestyle factored into every tile, stone, and flooring specification</span></div>
+      <div class="pi"><span class="pi-label">Client Style</span><span class="pi-val">Design direction tailored to each client — from traditional to contemporary to high-end transitional</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT 01 -->
+<div class="project">
+  <div class="ph">
+    <div class="pnum">01</div>
+    <div class="pinfo">
+      <h2 class="ptitle">Contractor Clients<br><em>Multiple Residences · DMV</em></h2>
+      <p class="pdesc">A series of finish selections completed for a contractor serving multiple residential clients — each home receiving a distinct material palette based on the client's style, budget, and end use.</p>
+      <div class="tags"><span class="tag">LVP Flooring</span><span class="tag">Tile Selection</span><span class="tag">Bathroom Finishes</span><span class="tag">Multi-Client</span><span class="tag">Contractor Partnership</span></div>
+    </div>
+  </div>
+  <div class="g4">
+    <div class="ic l"><img src="https://i.imgur.com/kAj8Huf.jpeg" loading="lazy"><div class="cap"><p>Finish selection — flooring and tile coordination</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/KehZhxU.jpeg" loading="lazy"><div class="cap"><p>Material palette — tile and stone specification</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/0ZZjhAj.jpeg" loading="lazy"><div class="cap"><p>Completed installation — finish coordination</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/ojVXyWx.jpeg" loading="lazy"><div class="cap"><p>Residential finish — material and color selection</p></div></div>
+  </div>
+  <div class="g4">
+    <div class="ic l"><img src="https://i.imgur.com/8iR6I8O.jpeg" loading="lazy"><div class="cap"><p>Flooring specification — warm tone LVP</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/ePnm2qZ.jpeg" loading="lazy"><div class="cap"><p>Tile selection — bathroom wall and floor</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/maXlKzY.jpeg" loading="lazy"><div class="cap"><p>Completed finish — coordinated palette</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/vPmhS6l.jpeg" loading="lazy"><div class="cap"><p>Material selection — stone and tile finish</p></div></div>
+  </div>
+  <div class="g4 mb0">
+    <div class="ic l"><img src="https://i.imgur.com/jCsDSGm.jpeg" loading="lazy"><div class="cap"><p>Residential finish — flooring and tile</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/l6A8cB1.jpeg" loading="lazy"><div class="cap"><p>Bathroom finish — wall tile and floor selection</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/GMgkgVv.jpeg" loading="lazy"><div class="cap"><p>Completed installation — coordinated finish</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/SryqreJ.jpeg" loading="lazy"><div class="cap"><p>Final result — material and finish coordination</p></div></div>
+  </div>
+</div>
+
+<!-- PROJECT 02 -->
+<div class="project">
+  <div class="ph">
+    <div class="pnum">02</div>
+    <div class="pinfo">
+      <h2 class="ptitle">Homeowner · Full Renovation<br><em>DMV Area</em></h2>
+      <p class="pdesc">A homeowner project where a single bathroom refresh grew into a full renovation through the client relationship built during the initial engagement.</p>
+      <div class="tags"><span class="tag">Full Scope</span><span class="tag">Client Development</span><span class="tag">Tile &amp; Stone</span><span class="tag">LVP Flooring</span><span class="tag">Bathroom Renovation</span></div>
+    </div>
+  </div>
+  <div class="g2 mb0">
+    <div class="ic l"><img src="https://i.imgur.com/V3xwpVv.jpeg" loading="lazy"><div class="cap"><p>Homeowner finish selection — full scope coordination</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/MGtTOXy.jpeg" loading="lazy"><div class="cap"><p>Material selection — tile and flooring specification</p></div></div>
+  </div>
+</div>
+
+<!-- PROJECT 03 -->
+<div class="project">
+  <div class="ph">
+    <div class="pnum">03</div>
+    <div class="pinfo">
+      <h2 class="ptitle">Realtor Client<br><em>Resale Optimization · DMV</em></h2>
+      <p class="pdesc">Finish selections optimized for resale — materials chosen for broad market appeal, durability, and value-add impact. Tile, flooring, and bathroom finishes specified with the listing outcome in mind.</p>
+      <div class="tags"><span class="tag">Resale Optimization</span><span class="tag">Market Appeal</span><span class="tag">Tile Selection</span><span class="tag">Flooring Specification</span><span class="tag">Realtor Partnership</span></div>
+    </div>
+  </div>
+  <div class="g3 mb0">
+    <div class="ic l"><img src="https://i.imgur.com/pZ8jNEQ.jpeg" loading="lazy"><div class="cap"><p>Resale finish — broad market appeal tile and flooring</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/cHNs3lE.jpeg" loading="lazy"><div class="cap"><p>Material selection — value-add finish coordination</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/27Y5uEi.jpeg" loading="lazy"><div class="cap"><p>Completed finish — listing-ready result</p></div></div>
+  </div>
+</div>
+
+<!-- PROJECT 04 -->
+<div class="project">
+  <div class="ph">
+    <div class="pnum">04</div>
+    <div class="pinfo">
+      <h2 class="ptitle">Luxury Realtor Client<br><em>High-End Market · DMV</em></h2>
+      <p class="pdesc">Finish selections for the luxury resale market — premium stone, large-format tile, and elevated material choices specified to meet high-end buyer expectations and support top-of-market listing prices.</p>
+      <div class="tags"><span class="tag">Luxury Market</span><span class="tag">Premium Stone</span><span class="tag">Large-Format Tile</span><span class="tag">High-End Specification</span><span class="tag">Resale</span></div>
+    </div>
+  </div>
+  <div class="g3 mb0">
+    <div class="ic l"><img src="https://i.imgur.com/2xCqwDd.jpeg" loading="lazy"><div class="cap"><p>Luxury finish — premium stone and tile selection</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/uV4QJC1.jpeg" loading="lazy"><div class="cap"><p>High-end material specification — large-format tile</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/oDwZmek.jpeg" loading="lazy"><div class="cap"><p>Elevated finish — luxury market material coordination</p></div></div>
+  </div>
+</div>
+
+<!-- PROJECT 05 -->
+<div class="project">
+  <div class="ph">
+    <div class="pnum">05</div>
+    <div class="pinfo">
+      <h2 class="ptitle">Bathroom to Full Renovation<br><em>Homeowner · DMV</em></h2>
+      <p class="pdesc">What began as a single bathroom finish selection expanded into a full home renovation through the trust built during the initial engagement. A project that grew with the relationship.</p>
+      <div class="tags"><span class="tag">Full Scope</span><span class="tag">Client Development</span><span class="tag">Bathroom Transformation</span><span class="tag">Flooring</span><span class="tag">Tile &amp; Stone</span></div>
+    </div>
+  </div>
+  <div class="g3">
+    <div class="ic l"><img src="https://i.imgur.com/Q9Fi1Cp.jpeg" loading="lazy"><div class="cap"><p>Bathroom finish — starting point of the project</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/5WFFn3N.jpeg" loading="lazy"><div class="cap"><p>Tile selection — wall and floor coordination</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/xqEveIo.jpeg" loading="lazy"><div class="cap"><p>Material specification — expanded scope</p></div></div>
+  </div>
+  <div class="g4 mb0">
+    <div class="ic l"><img src="https://i.imgur.com/5D4sksu.jpeg" loading="lazy"><div class="cap"><p>Flooring selection — full home coordination</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/5Fu2hjk.jpeg" loading="lazy"><div class="cap"><p>Additional finish — material continuity throughout</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/65i7uNq.jpeg" loading="lazy"><div class="cap"><p>Completed area — cohesive finish across spaces</p></div></div>
+    <div class="ic l"><img src="https://i.imgur.com/QPaZP99.jpeg" loading="lazy"><div class="cap"><p>Final result — full scope renovation complete</p></div></div>
+  </div>
+</div>
+
+<!-- MOODBOARD -->
+<div class="mood">
+  <div class="mood-inner">
+    <div>
+      <h3>Design Vision<br><em>AI-Assisted Moodboards</em></h3>
+      <p>Client presentations included AI-generated concept boards to communicate design direction before material selection — helping clients visualize the finished result and align on the aesthetic early in the process.</p>
+    </div>
+    <div style="overflow:hidden; border-radius:2px;">
+      <img src="https://i.imgur.com/TkmIYp0.jpeg" style="width:100%; height:auto; display:block;" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<footer><p><a href="https://www.textilescorner.com">← Back to Portfolio</a> &nbsp;·&nbsp; © Saba Aghapour</p></footer>
+</body>
+</html>
